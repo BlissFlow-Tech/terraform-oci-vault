@@ -23,9 +23,10 @@ variable "vault" {
   default = null
 }
 variable "kms_key" {
-  description = "Master encryption key to create in the vault. Null creates none; secrets then need key_id."
+  description = "Master encryption key to create, in the vault from this call or in the vault whose management_endpoint is set. Null creates none; secrets then need key_id."
   type = object({
-    display_name = string
+    display_name        = string
+    management_endpoint = optional(string)
     key_shape = object({
       algorithm = string
       length    = number

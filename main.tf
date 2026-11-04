@@ -78,7 +78,7 @@ resource "oci_kms_key" "this" {
   restore_trigger  = var.kms_key.restore_trigger
 
   is_auto_rotation_enabled = var.kms_key.enable_auto_key_rotation
-  management_endpoint      = oci_kms_vault.this[0].management_endpoint
+  management_endpoint      = var.kms_key.management_endpoint != null ? var.kms_key.management_endpoint : one(oci_kms_vault.this[*].management_endpoint)
   dynamic "auto_key_rotation_details" {
     for_each = var.kms_key.auto_key_rotation_details != null ? [var.kms_key.auto_key_rotation_details] : []
     content {
@@ -112,6 +112,13 @@ resource "oci_kms_key" "this" {
   protection_mode = var.kms_key.protection_mode
   defined_tags    = var.kms_key.defined_tags
   freeform_tags   = var.kms_key.freeform_tags
+
+  lifecycle {
+    precondition {
+      condition     = var.kms_key.management_endpoint != null || var.vault != null
+      error_message = "kms_key needs either vault or kms_key.management_endpoint."
+    }
+  }
 }
 
 resource "oci_vault_secret" "this" {
