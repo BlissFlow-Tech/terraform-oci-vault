@@ -100,7 +100,7 @@ module "vault" {
 | kms\_key | The master encryption key created, or null |
 | random\_passwords | Generated random passwords, keyed like vault\_secrets |
 | tls\_private\_key | Generated TLS key pairs, keyed like vault\_secrets |
-| vault\_kms | The vault created, or null when no key is created |
+| vault\_kms | The vault created, or null |
 | vault\_secrets | Secrets created, keyed like vault\_secrets |
 <!-- END_TF_DOCS -->
 
