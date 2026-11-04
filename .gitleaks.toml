@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "tls_private_key attribute references, not key material"
+regexTarget = "line"
+paths = ['''^outputs\.tf$''']
+regexes = ['''^\s*private_key_pem_pkcs8\s*=\s*v\.private_key_pem_pkcs8$''']
