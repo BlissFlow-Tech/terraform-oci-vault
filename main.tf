@@ -101,11 +101,11 @@ resource "oci_kms_key" "this" {
   dynamic "restore_from_object_store" {
     for_each = var.kms_key.restore_from_object_store != null ? [var.kms_key.restore_from_object_store] : []
     content {
-      destination = restore_from_object_store.value.restore_from_object_store
-      bucket      = restore_from_object_store.value.restore_from_object_store.bucket
-      namespace   = restore_from_object_store.value.restore_from_object_store.namespace
-      object      = restore_from_object_store.value.restore_from_object_store.object
-      uri         = restore_from_object_store.value.restore_from_object_store.uri
+      destination = restore_from_object_store.value.destination
+      bucket      = restore_from_object_store.value.bucket
+      namespace   = restore_from_object_store.value.namespace
+      object      = restore_from_object_store.value.object
+      uri         = restore_from_object_store.value.uri
     }
   }
 
