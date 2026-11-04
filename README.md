@@ -7,7 +7,7 @@ Terraform module that manages an OCI Vault, a master encryption key and secrets 
 ```hcl
 module "vault" {
   source  = "blissflow-tech/vault/oci"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   compartment_id = var.compartment_id
 
