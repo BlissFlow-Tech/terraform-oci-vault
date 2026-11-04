@@ -1,6 +1,6 @@
 output "vault_kms" {
-  description = "The vault created, or null when no key is created"
-  value = length(oci_kms_key.this) > 0 ? {
+  description = "The vault created, or null"
+  value = length(oci_kms_vault.this) > 0 ? {
     id                                    = one(oci_kms_vault.this[*].id)
     name                                  = one(oci_kms_vault.this[*].display_name)
     type                                  = one(oci_kms_vault.this[*].vault_type)
