@@ -68,13 +68,11 @@ variable "kms_key" {
 variable "vault_secrets" {
   description = "Secrets to create, keyed by secret name. Each sets exactly one of secret_content.content, random_password, random_bytes or tls_private_key."
   type = map(object({
-    name                = optional(string)
     compartment_id      = string
     vault_id            = optional(string)
     key_id              = optional(string)
     use_random_suffix   = optional(bool, false)
-    vault_suffix_lenght = optional(number, 4)
-    secret_name         = optional(string)
+    vault_suffix_length = optional(number, 4)
     description         = optional(string)
 
     defined_tags  = optional(map(string))

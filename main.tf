@@ -32,7 +32,7 @@ resource "random_id" "vault_suffix" {
     for k, v in var.vault_secrets : k => v
     if try(v.use_random_suffix == true, false)
   })
-  byte_length = each.value.vault_suffix_lenght
+  byte_length = each.value.vault_suffix_length
 }
 
 resource "oci_kms_vault" "this" {
