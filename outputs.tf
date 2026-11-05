@@ -93,7 +93,6 @@ output "ekms_private_endpoint" {
 output "random_passwords" {
   description = "Generated random passwords, keyed like vault_secrets"
   value       = { for k, v in random_password.this : k => v.result }
-  sensitive   = false
 }
 
 output "tls_private_key" {
@@ -112,5 +111,4 @@ output "tls_private_key" {
     rsa_bits                      = v.rsa_bits
     }
   }
-  sensitive = false
 }
