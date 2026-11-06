@@ -49,7 +49,7 @@ module "vault" {
 * Each secret sets exactly one content source: `content` (plain text, base64-encoded by the module), `random_password`, `random_bytes` (`hex` or `base64`) or `tls_private_key` (stored as PEM).
 * Secrets use the vault and key created by this call unless `vault_id` and `key_id` are set. A key is created in the vault from the same call, or in an existing vault when `kms_key.management_endpoint` is set.
 * The secret name is the map key; `use_random_suffix = true` appends a random hex suffix of `vault_suffix_length` bytes.
-* The `random_passwords` and `tls_private_key` outputs are not marked sensitive. Treat the state and plan output as secret.
+* The `random_passwords` output and the private keys in `tls_private_key` keep the providers' sensitive marks, so plans redact them. State still stores them in plain text.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
