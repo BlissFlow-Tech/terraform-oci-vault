@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/BlissFlow-Tech/terraform-oci-vault/compare/v2.0.0...v2.0.1) (2026-11-06)
+
+
+### Bug Fixes
+
+* drop the misleading sensitive = false on secret outputs ([#11](https://github.com/BlissFlow-Tech/terraform-oci-vault/issues/11)) ([d392a58](https://github.com/BlissFlow-Tech/terraform-oci-vault/commit/d392a581e2f6fd146518b1a4e998a3ad2541f532))
+
 ## [2.0.0](https://github.com/BlissFlow-Tech/terraform-oci-vault/compare/v1.0.0...v2.0.0) (2026-11-04)
 
 
